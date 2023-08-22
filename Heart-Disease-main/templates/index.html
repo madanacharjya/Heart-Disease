@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Detection</title>
+    <link rel="stylesheet" href="/static_files/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Heart Disease Detection</h1>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>Advanced Cardiac Care</h2>
+            <p>Your health is our priority. Detect heart disease with precision.</p>
+        </div>
+    </section>
+    
+    <section class="form-section">
+        <div class="container">
+            <form action="/predict" method="post">
+                <div class="input-group">
+                    <label for="Age">Age</label>
+                    <input type="number" name="Age" min="0" max="100" required>
+                </div>
+                <div class="input-group">
+                    <label for="Sex">Sex</label>
+                    <select name="Sex" required>
+                        <option value="" disabled selected></option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="TrestBPS">Resting Blood Pressure</label>
+                    <input type="number" name="TrestBPS" min="100" max="170" required>
+                </div>
+                <div class="input-group">
+                    <label for="chol">Cholesterol (mg/dL)</label>
+                    <input type="number" name="chol" required>
+                </div>
+                <div class="input-group">
+                    <label for="fbs">Fasting Blood Sugar (mg/dL)</label>
+                    <input type="number" name="fbs" required>
+                </div>
+                <div class="input-group">
+                    <label for="restecg">Resting ECG Results</label>
+                    <select name="restecg" required>
+                        <option value="" disabled selected></option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="thalac">Maximum Heart Rate</label>
+                    <input type="number" name="thalac" required>
+                </div>
+                <div class="input-group">
+                    <label for="exang">Exercise Induced Angina</label>
+                    <select name="exang" required>
+                        <option value="" disabled selected></option>
+                        <option value="0">NO</option>
+                        <option value="1">YES</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="oldpeak">OldPeak</label>
+                    <input type="number" name="oldpeak" required>
+                </div>
+                <div class="input-group" required>
+                    <label for="slope">Slope of the Peak Exercise</label>
+                    <select name="slope" required>
+                        <option value="" disabled selected></option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="ca">Number of Colored Vessels</label>
+                    <select name="ca" required>
+                        <option value="" disabled selected></option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="thal">Thal</label>
+                    <select name="thal" required>
+                        <option value="" disabled selected></option>
+                        <option value="3">Reversible defect</option>
+                        <option value="2">Fixed defect</option>
+                        <option value="1">Normal</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Predict</button>
+            </form>
+            <p id="prediction">Prediction: {{ prediction }}</p>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Heart Disease Detection, Developed by Madan Acharjya.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
